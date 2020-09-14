@@ -1,20 +1,11 @@
 <template>
   <label class="checkbox">
-    <input type="checkbox" name />{{itemPoint}}
+    <input type="checkbox">{{messagepost.text}}
   </label>
 </template>
 <script>
 export default {
-    data() {
-        return {
-            item:'洗濯'
-        }
-    },
-    computed: {
-   itemPoint() {
-     return `${this.item}！`
-   }
- }
+  props: ["messagepost"]
 }
 </script>
 
@@ -22,12 +13,6 @@ export default {
 .form {
   width: 500px;
   margin: 0 auto;
-}
-.checklists {
-  margin: 0 auto;
-  font-size: 30px;
-  text-align: left;
-  margin-top: 50px;
 }
 input[type="checkbox"] {
   width: 20px;
