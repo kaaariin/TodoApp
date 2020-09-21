@@ -1,6 +1,6 @@
 <template>
   <label class="checkbox">
-        <Listitem v-for="donemessage in post"></Listitem>
+        <チェックされたListitem v-for:donemessage in donemessages>{{donemessage.text}}</チェListitem>
     <hr />
   </label>
 </template>
@@ -22,7 +22,7 @@ export default {
   
   methods: {
     doneitem() {
-      this.donemessages.push()
+      this.donemessages.push()//何をプッシュすれば？？
     }
   }
 }
