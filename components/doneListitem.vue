@@ -1,9 +1,32 @@
 <template>
   <label class="checkbox">
-    <input type="checkbox" name />ランニング
+        <Listitem v-for="donemessage in post"></Listitem>
     <hr />
   </label>
 </template>
+<script>
+import Listitem from "~/components/Listitem.vue";
+import { db,firebase } from "~/plugins/firebase";
+
+
+export default {
+  props: ["post"],
+  components: {
+    Listitem
+  },
+  data() {
+    return {
+      donemessages:[]
+    }
+  },
+  
+  methods: {
+    doneitem() {
+      this.donemessages.push()
+    }
+  }
+}
+</script>
 <style>
 .done {
   position: relative;

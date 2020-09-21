@@ -1,12 +1,30 @@
 <template>
   <label class="checkbox">
-    <input type="checkbox">{{messagepost.text}}
+    <input type="checkbox" v-model="listcheck" v-if="listcheck">
+    <input type="checkbox" v-model="listcheck" v-else v-on:change="deleteitem; doneitem">
+    {{messagepost.text}}
   </label>
 </template>
 <script>
+import { db, firebase } from "~/plugins/firebase";
 export default {
-  props: ["messagepost"]
-}
+  props: ["messagepost"],
+  data() {
+    return {
+      listcheck: false
+    };
+  },
+  methods: {
+    deleteitem() {
+      this.$emit('delete-item')
+      if(this.listcheck == true) {
+      }
+    },
+    doneitem() {
+      this.$emit('done-item')
+    }
+  }
+};
 </script>
 
 <style>
