@@ -7,31 +7,31 @@
   </div>
 </template>
 <script>
-import { db,firebase } from "~/plugins/firebase";
-import { mapActions} from 'vuex'
+import { db, firebase } from "~/plugins/firebase";
+import { mapActions } from "vuex";
 
 export default {
   data() {
     return {
       channels: []
-    }
+    };
   },
   computed: {
     isAuthenticated() {
-      return this.$store.getters.isAuthenticated
+      return this.$store.getters.isAuthenticated;
     }
   },
   methods: {
-    ...mapActions(['setUser'])
+    ...mapActions(["setUser"])
   },
-  mounted () {
-    firebase.auth().onAuthStateChanged((user) => {
+  mounted() {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.setUser(user)
+        this.setUser(user);
       }
-    }
-    )}
-}
+    });
+  }
+};
 </script>
 <style>
 body {

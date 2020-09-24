@@ -1,7 +1,7 @@
 <template>
   <label class="checkbox">
-    <input type="checkbox" v-model="listcheck" v-if="listcheck">
-    <input type="checkbox" v-model="listcheck" v-else v-on:change="deleteitem; doneitem">
+    <input type="checkbox" v-if="listcheck" />
+    <input type="checkbox" v-else v-on:change="doneitem(); deleteitem();" />
     {{messagepost.text}}
   </label>
 </template>
@@ -16,12 +16,13 @@ export default {
   },
   methods: {
     deleteitem() {
-      this.$emit('delete-item')
-      if(this.listcheck == true) {
+      this.$emit("delete-item",this.listcheck);
+      if(this.listcheck === true) {
+        this.listcheck === false
       }
     },
     doneitem() {
-      this.$emit('done-item')
+      this.$emit("done-item","listcheck");
     }
   }
 };
